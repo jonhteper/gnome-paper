@@ -19,6 +19,8 @@ add_cron_job "0 7 * * *" "$command"
 
 add_cron_job "0 19 * * *" "$command"
 
-add_cron_job "/30 * * * *" "$command"
+add_cron_job "30 * * * *" "$command"
+
+add_cron_job "0 * * * *" "$command"
 
 add_cron_job "@reboot" "$command"
