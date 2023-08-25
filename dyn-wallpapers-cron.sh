@@ -15,9 +15,6 @@ add_cron_job() {
 path=".dyn-wallpapers/dyn-wallpapers.sh"
 command="bash /home/${USER}/${path}"
 
-add_cron_job "0 7 * * *" "$command"
-
-add_cron_job "0 19 * * *" "$command"
 
 add_cron_job "30 * * * *" "$command"
 
