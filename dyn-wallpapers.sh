@@ -8,12 +8,20 @@
 now=$(date +%-H)
 file="n.jpg"
 
+day_msg="¡wallpaper de día activado!"
+nigth_msg="¡wallpaper de noche activado!"
+
+
 if ((now >= 7 && now < 19)); then
 	file="d.jpg"
-	echo "¡wallpaper de día activado!"
+
+	echo "$day_msg"
+	echo "Hora:${now} -- ${day_msg}" >> "/home/$USER/.dyn-wallpapers/dyn-wallpapers.log"
 else
-	echo "¡wallpaper de noche activado!"
+	echo "$nigth_msg"
+	echo "Hora:${now} -- ${nigth_msg}" >> "/home/$USER/.dyn-wallpapers/dyn-wallpapers.log"
 fi
 
-
-gsettings set org.gnome.desktop.background picture-uri-dark ~/.dyn-wallpapers/"$file"
+path="/home/${USER}/.dyn-wallpapers/${file}"
+gsettings set org.gnome.desktop.background picture-uri-dark "$path"
+echo "ejecutando... $path"
