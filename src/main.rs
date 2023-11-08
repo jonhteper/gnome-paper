@@ -7,40 +7,12 @@ use std::sync::{
 use std::thread;
 use std::time::Duration;
 
-mod domain;
+mod application;
+mod config;
+mod errors;
+mod image;
 
-fn task() {
-    let now = Local::now();
-    println!("async task running at {:?}", now);
-}
+#[cfg(test)]
+mod tests;
 
-fn background_task(stop_signal: Arc<AtomicBool>) {
-    task();
-    while !stop_signal.load(Ordering::Relaxed) {
-        thread::sleep(Duration::from_millis(5000));
-        task();
-    }
-}
-
-pub fn main() {
-    let stop_signal = Arc::new(AtomicBool::new(false));
-    let signal_clone = Arc::clone(&stop_signal);
-    let handle = thread::spawn(move || background_task(signal_clone));
-
-    loop {
-        let mut buffer = String::new();
-        io::stdin()
-            .read_line(&mut buffer)
-            .expect("Error reading input");
-
-        match buffer.as_str().trim() {
-            "close" => {
-                stop_signal.store(true, Ordering::Relaxed);
-                break;
-            }
-            _ => println!("el usuario dice: {}", &buffer),
-        }
-    }
-
-    handle.join().unwrap();
-}
+pub fn main() {}
