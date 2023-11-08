@@ -1,0 +1,18 @@
+# ------ Gnome Paper configuration ------ #
+
+# Error storage. Valid values:
+# 0 -> errors not saved
+# 1 -> errors saved in temp file
+# 2 -> errors saved in file
+debug_mode = 1
+
+# Daemon reload interval. Valid values:
+# 0 -> Every minute is reloaded.
+# 1 -> Every 10 minutes is reloaded.
+# 2 -> Every half hour is reloaded.
+# 3 -> Every hour is reloaded.
+accuracy = 1
+
+
+# Indicates if the daemon run at start
+is_active = true

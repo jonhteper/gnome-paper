@@ -1,0 +1,10 @@
+# ------ Gnome Paper images ------ #
+
+[[images]]
+start = "06:00"
+file = "~/.dyn-wallpapers/d.jpg"
+
+
+[[images]]
+start = "18:00"
+file = "~/.dyn-wallpapers/n.jpg"
